@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #000000;
+}
+
+nav {
+    background: #ff0000;
+    padding: 10px 0;
+}
+
+li {
+    display: inline-block;
+    margin: 0 15px;
+    transition: transform 0.3s, font-size 0.3s;
+    position: relative;
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+    animation: moveLine 2s infinite linear;
+    visibility: hidden; /* Initially hide the line */
+}
+
+li:hover::before {
+    visibility: visible; /* Show the line on hover */
+}
+
+@keyframes moveLine {
+    0% {
+        transform-origin: bottom right;
+        transform: scaleX(0);
+    }
+    100% {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+    }
+}
+
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    transition: transform 0.3s, font-size 0.3s;
+}
+
+a:hover {
+    transform: translateY(-5px) scale(1.05);
+    font-size: 1.1em;
+}
+
+@keyframes pulseShadow {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        transform: scale(1);
+    }
+}
+
+header {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    animation: pulseShadow 4s infinite;
+}
+
+
+
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: perspective(2000px) rotateX(30deg);
+    transition: transform 0.5s;
+}
+
+.content:hover {
+    transform: perspective(2000px) rotateX(0deg);
+}
+
+h2 {
+    margin-top: 0;
+    transition: transform 0.3s;
+}
+
+h2:hover {
+    transform: translateY(-5px);
+}
+
+.project,
+.job,
+.contact,
+.aboutme {
+    margin: 20px 0;
+    padding: 15px;
+    background: #ff0000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.top-icons {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.top-icons a {
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.top-icons img {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.top-icons a:hover {
+    transform: translateY(-5px);
+}
+
+nav a:hover,
+header h1:hover,
+.top-icons a:hover {
+    transform: translateY(-5px);
+}
