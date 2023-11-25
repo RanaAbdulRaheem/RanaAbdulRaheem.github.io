@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    background: #ff0000;
+    background: #ffffff;
     padding: 10px 0;
 }
 
@@ -117,7 +117,7 @@ h2:hover {
 .aboutme {
     margin: 20px 0;
     padding: 15px;
-    background: #ff0000;
+    background: #000000;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
