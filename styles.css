@@ -2,18 +2,42 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background:  #E6E6FA;
+    background: #f2f2f2; /* Lighter background for better contrast */
+    color: #333; /* Dark text color for better readability */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    opacity: 0; /* Hide content initially */
+    transition: opacity 1s ease-in-out; /* Smooth opacity transition */
+}
+
+body.loaded {
+    opacity: 1; /* Show content after load */
+}
+
+/* Rest of your styles remain unchanged */
+
+/* Custom scrollbar */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #3ca53c; /* Color of the scrollbar */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f2f2f2; /* Background of the scrollbar track */
 }
 
 nav {
-    background: #E6E6FA;
-    padding: 10px 0;
+    background: #ddd; /* Lighter background for better contrast */
+    padding: 15px 0;
+    border-bottom: 1px solid #3ca53c; /* Highlight border bottom */
 }
 
 li {
     display: inline-block;
     margin: 0 15px;
-    transition: transform 0.3s, font-size 0.3s;
     position: relative;
 }
 
@@ -24,91 +48,63 @@ li::before {
     left: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background: #333; /* Dark line for better visibility */
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
-    animation: moveLine 2s infinite linear;
-    visibility: hidden; /* Initially hide the line */
 }
 
 li:hover::before {
-    visibility: visible; /* Show the line on hover */
+    transform-origin: bottom left;
+    transform: scaleX(1);
 }
-
-@keyframes moveLine {
-    0% {
-        transform-origin: bottom right;
-        transform: scaleX(0);
-    }
-    100% {
-        transform-origin: bottom left;
-        transform: scaleX(1);
-    }
-}
-
 
 a {
     text-decoration: none;
-    color: black;
+    color: #777; /* Slightly darker text color for links */
     font-weight: bold;
-    transition: transform 0.3s, font-size 0.3s;
+    transition: transform 0.3s, font-size 0.3s, color 0.3s; /* Added color transition */
 }
 
 a:hover {
     transform: translateY(-5px) scale(1.05);
     font-size: 1.1em;
-}
-
-@keyframes pulseShadow {
-    0% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        transform: scale(1);
-    }
-    100% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        transform: scale(1);
-    }
+    color: #333; /* Darken text color on hover */
 }
 
 header {
-    background:  #BCE27F;
-    color: black;
+    background: #3ca53c; /* Darker green background */
+    color: #333; /* Dark text color for better contrast */
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     animation: pulseShadow 4s infinite;
 }
-
-
-
 
 .content {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background:  #BCE27F;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: #3ca53c; /* Darker green background */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     position: relative;
     transform: perspective(2000px) rotateX(30deg);
-    transition: transform 0.5s;
+    transition: transform 0.5s, box-shadow 0.5s; /* Improved transition */
 }
 
 .content:hover {
     transform: perspective(2000px) rotateX(0deg);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     margin-top: 0;
-    transition: transform 0.3s;
+    transition: transform 0.3s, color 0.3s; /* Added color transition */
 }
 
 h2:hover {
     transform: translateY(-5px);
+    color: #333; /* Darken text color on hover */
 }
 
 .project,
@@ -116,27 +112,27 @@ h2:hover {
 .contact,
 .aboutme {
     margin: 20px 0;
-    padding: 15px;
-    background: #E6E6FA;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: #ddd; /* Lighter background for better contrast */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .top-icons {
     position: absolute;
-    top: 5px;
+    top: 10px;
     right: 10px;
     z-index: 1000;
 }
 
 .top-icons a {
     margin-right: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, color 0.3s; /* Added color transition */
 }
 
 .top-icons img {
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 40px;
+    max-height: 40px;
 }
 
 .top-icons a:hover {
@@ -144,7 +140,7 @@ h2:hover {
 }
 
 nav a:hover,
-header h1:hover,
 .top-icons a:hover {
     transform: translateY(-5px);
+    color: #3ca53c; /* Highlight color on hover */
 }
