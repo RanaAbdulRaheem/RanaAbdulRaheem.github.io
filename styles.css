@@ -146,13 +146,19 @@ h2:hover {
 }
 
 .top-icons img:hover {
-    color: #ffcc00;    
+    background-color: #ffcc00;    
     transform: scale(1.2);
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+
 }
 
 .top-icons a:hover {
     transform: translateY(-5px);
-    color: #ffcc00;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+
 }
 
 /* Keyframe animations */
